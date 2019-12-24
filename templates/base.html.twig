@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>SymBnB - {% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('build/css/perso.css') }}">
+        <!-- <link href="/css/perso.css" rel="stylesheet" /> -->
+
+        {% endblock %}
+    </head>
+    <body>
+       {% include 'partials/header.html.twig' %}
+
+          {% for label, messages in app.flashes %}
+
+          <div class="container">
+            <div class="alert alert-{{ label }} fade show">
+              <button type="button" style="color:white" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {% for message in messages %}
+              <p>{{ message | raw}}</p>
+              
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+          
+        {% block body %}{% endblock %}
+        {% include 'partials/footer.html.twig' %}
+        {% block javascripts %}
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

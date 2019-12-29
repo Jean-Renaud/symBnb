@@ -16,9 +16,10 @@
 
           <div class="container">
             <div class="alert alert-{{ label }} fade show">
-              <button type="button" style="color:white" class="close" data-dismiss="alert" aria-label="Close">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+            
               {% for message in messages %}
               <p>{{ message | raw}}</p>
               
@@ -28,11 +29,15 @@
           {% endfor %}
           
         {% block body %}{% endblock %}
+
+       
+
         {% include 'partials/footer.html.twig' %}
+  
         {% block javascripts %}
-        <script src="/js/jquery.min.js"></script>
-        <script src="/js/popper.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
         {% endblock %}
     </body>
 </html>
